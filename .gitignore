@@ -1,0 +1,8 @@
+# LaTeX artifacts
+src/*
+!src/chapters
+!src/main.tex
+!src/res
+
+# Instruction PDF files (in root repo dir)
+*.pdf

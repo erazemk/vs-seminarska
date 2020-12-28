@@ -1,1 +1,21 @@
 \section{Interval predikcije za vrednost Y pri izbrani vrednosti X}
+
+Pri predvidevanju velikosti možganov sesalcev nas zanima bodoča vrednost spremenljivke Y (velikost možanov)
+pri neki izbrani vrednosti spremenljivke X = $x_0$ (telesna teža).
+Poleg predvidevane vrednosti $\widehat{y} = 95.8111 + 0.9653x_0$ za neke izbrane telesne teže sesalcev $x_0$ nas
+zanimata tudi spodnja in zgornja meja, med katerima se nahaja velikost možganov sesalcev teh telesnih tež.
+\emph{Interval predikcije} najdemo s pomočjo R funkcije \emph{predict()} in sicer z ukazoma
+\verb|xteza = data.frame(telteza = c(100, 500, 2500))| in \verb|predict(model, xteza, interval = "predict")|,
+ki nam vrne rezultate:
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{cccc}
+               & \textbf{fit} & \textbf{lwr} & \textbf{upr} \\
+    \textbf{1} & 5.617202     & 4.277393     & 6.957011     \\
+    \textbf{2} & 6.819109     & 5.464795     & 8.173424     \\
+    \textbf{3} & 8.021017     & 6.646528     & 9.395506    
+    \end{tabular}
+    \caption{Interval predikcije}
+    \label{tab:prediction}
+\end{table}

@@ -1,1 +1,12 @@
-\section{Formiranje linearnega regresijskega modela, prikaz računanja ocen naklona in odseka, ter enačba vzorčne regresijske premice}
+\section{Formiranje linearnega regresijskega modela}
+
+Linearni regresijski model lahko formiramo s pomočjo funkcije \verb|lm()| in sicer z ukazom
+
+\noindent
+\verb|(model <- lm(mozteza~telteza, data = mozgani))|, ki nam vrne regresijsko premico
+$\widehat{y} = 95.8111 + 0.9653$, oz. oceni odseka ($\widehat{a} = 95.8111$) in naklona ($\widehat{b} = 0.9653$).\\
+
+\noindent
+Oceni odseka in naklona sta izračunani s formulama \verb|a <- my - b * mx|, ki nam vrne rezultat \verb|[1] 95.8111|,
+in \verb|b <- r * sy / sx|, ki nam vrne rezultat \verb|[1] 0.9653|, pri čemer smo \emph{r}, \emph{mx}, \emph{my},
+\emph{sx} in \emph{sy} izračunali že prej.

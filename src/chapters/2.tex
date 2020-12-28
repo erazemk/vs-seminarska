@@ -1,5 +1,54 @@
 \section{Opisna statistika}
 
-Bonus točka V točki 2b) po Opisni statistiki, podajte razloge za transformacijo podatkov na
-osnovi razsevnega diagrama, koeficienta korelacije in diagnostičnih grafov originalnih (netrans-
-formiranih) podatkov. Potem pa nadaljujete z analizo v točkah 3-8.
+% Bonus točka V točki 2b) po Opisni statistiki, podajte razloge za transformacijo
+% podatkov na osnovi razsevnega diagrama, koeficienta korelacije in diagnostičnih
+% grafov originalnih (netransformiranih) podatkov.
+% Potem pa nadaljujete z analizo v točkah 3-8.
+
+Za prikaz opisne statistike naših podatkov uporabimo R funkcijo \emph{summary}, ki nam vrne minimum, maksimum,
+prvi in tretji kvartil in mediano.
+Prav tako uporabimo še štiri druge ukaze:
+
+\begin{itemize}
+    \item \verb|(mx<-mean(mozgani$telteza))|\label{en:mx} nam prikaže \emph{vzorčno poprečje} telesne teže sesalcev,
+    \item \verb|(sx<-sd(mozgani$telteza))|\label{en:sx} nam prikaže \emph{vzočni standardni odklon} telesne teže sesalcev.
+    \item \verb|(my<-mean(mozgani$mozteza))|\label{en:my} nam prikaže \emph{vzorčno poprečje} možganske teže sesalcev,
+    \item \verb|(sy<-sd(mozgani$mozteza))|\label{en:sy} nam prikaže \emph{vzočni standardni odklon} možganske teže sesalcev.
+\end{itemize}
+
+\noindent
+Rezultati ukazov so prikazani spodaj:
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+    \textbf{Min.} & \textbf{1. Kvartil} & \textbf{Mediana} & \textbf{Povprečje} & \textbf{3. Kvartil} & \textbf{Max.} \\
+    0.005 & 0.768 & 3.385 & 208.840 & 53.830 & 6654.180 \\ \hline
+    \multicolumn{3}{|c|}{\textbf{Vzor. Povpr.}} & \multicolumn{3}{c|}{\textbf{Vzor. Stand. Odkl.}} \\
+    \multicolumn{3}{|c|}{208.8403} & \multicolumn{3}{c|}{920.9927} \\ \hline
+    \end{tabular}
+    \caption{Opisna statistika za telesno težo sesalcev}
+    \label{tab:telteza}
+    \end{table}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+    \textbf{Min.} & \textbf{1. Kvartil} & \textbf{Mediana} & \textbf{Povprečje} & \textbf{3. Kvartil} & \textbf{Max.} \\
+    0.14 & 5.60 & 21.00 & 297.41 & 172.00 & 5711.86 \\ \hline
+    \multicolumn{3}{|c|}{\textbf{Vzor. Povpr.}} & \multicolumn{3}{c|}{\textbf{Vzor. Stand. Odkl.}} \\
+    \multicolumn{3}{|c|}{297.4095} & \multicolumn{3}{c|}{951.7869} \\ \hline
+    \end{tabular}
+    \caption{Opisna statistika za možgansko težo sesalcev}
+    \label{tab:mozteza}
+    \end{table}
+
+Tabela \ref{tab:telteza} prikazuje opisno statistiko za telesno težo sesalcev, kjer opazimo, da telesna teža vzorca
+variira med \verb|5 g| in \verb|6654 kg|, s povprečjem \verb|208.8 kg| in standardnim odklonom \verb|921 kg|.
+
+Tabela \ref{tab:mozteza} prikazuje opisno statistiko za možgansko težo sesalcev, kjer opazimo, da možganska teža vzorca
+variira med \verb|0.14 g| in \verb|5712 g| (5.7 kg), s povprečjem \verb|297.4 g| in standardnim odklonom \verb|951.79 g|.
+
+Masi telesne in možganske teže nam pomagata pri izbiri mej na oseh razsevnega diagrama.

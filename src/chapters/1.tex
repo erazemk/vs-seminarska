@@ -1,2 +1,16 @@
 \section{Opis podatkov}
 
+Zbrali smo vzorec \emph{telesnih tež} in \emph{tež možganov} pri 59 vrstah sesalcev.
+Le-ti podatki so shranjeni v datoteki \emph{mozgani.csv}, ki je sestavljena iz štirih stolpcev
+
+\begin{itemize}
+    \item \emph{vrsta} je nominalna spremenljivka, katere vrednosti so latinski nazivi vrste sesalcev.
+    \item \emph{slovime} je nominalna spremenljivka, katere vrednosti so slovenski nazivi vrste sesalcev.
+    \item \emph{telteza} je numerična zvezna spremenljivka, ki predstavlja telesno težo (v kilogramih).
+    \item \emph{mozteza} je numerična zvezna spremenljivka, ki predstavlja težo možganov (v gramih).
+\end{itemize}
+
+\noindent
+Podatke v R preberemo s funkcijo \emph{read.csv} in sicer z ukazom:
+
+\verb|(mozgani<-read.csv("mozgani.csv", header=TRUE))|

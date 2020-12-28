@@ -1,30 +1,74 @@
 \documentclass[12pt,a4paper]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[margin=2.5cm]{geometry}
+\usepackage[slovene,english]{babel}
+\usepackage[unicode]{hyperref}
 \usepackage{
     lipsum,
     graphicx,
     amsmath,
-    amssymb
+    amssymb,
+    caption,
+    listings,
+    color,
+    subcaption,
+    fancyhdr
 }
 
-\title{Seminarska naloga}
+\captionsetup[figure]{name=Graf}
+\inputencoding{utf8}
+
+\title{Primer statistične obdelave podatkov:\\ Telesna in možganska teža sesalcev}
 \author{Erazem Kokot}
 \date{2020}
+
+\setcounter{tocdepth}{2}
 
 \begin{document}
 
     \begin{titlepage}
         \maketitle
+
+        \vfill
+        \begin{center}
+            Fakulteta za Računalništvo in Informatiko
+
+            Verjetnost in Statistika
+        \end{center}
+        \thispagestyle{empty}
     \end{titlepage}
+    
+    \selectlanguage{slovene}
+
+    \tableofcontents
+
+    \renewcommand{\listtablename}{Kazalo tabel}
+    \listoftables
+
+    \renewcommand{\listfigurename}{Kazalo grafov}
+    \listoffigures
+    \thispagestyle{empty}
+
+    \newpage
+
+    \input{chapters/listingdefs.tex}
 
     \input{chapters/1.tex}
+    \newpage
     \input{chapters/2.tex}
+    \newpage
     \input{chapters/3.tex}
+    \newpage
     \input{chapters/4.tex}
+    \newpage
     \input{chapters/5.tex}
+    \newpage
     \input{chapters/6.tex}
+    \newpage
     \input{chapters/7.tex}
+    \newpage
     \input{chapters/8.tex}
+    \newpage
+    \input{chapters/99.tex}
 
 \end{document}

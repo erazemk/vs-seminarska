@@ -1,21 +1,37 @@
 \section{Interval predikcije za vrednost Y pri izbrani vrednosti X}
 
-Pri predvidevanju velikosti možganov sesalcev nas zanima bodoča vrednost spremenljivke Y (velikost možanov)
+Pri predvidevanju velikosti možganov sesalcev nas zanima bodoča vrednost spremenljivke Y (teža možanov)
 pri neki izbrani vrednosti spremenljivke X = $x_0$ (telesna teža).
-Poleg predvidevane vrednosti $\widehat{y} = 95.8111 + 0.9653x_0$ za neke izbrane telesne teže sesalcev $x_0$ nas
+Poleg predvidevane vrednosti $\widehat{y} = 2.1781 + 0.7468x_0$ za neke izbrane telesne teže sesalcev $x_0$ nas
 zanimata tudi spodnja in zgornja meja, med katerima se nahaja velikost možganov sesalcev teh telesnih tež.
 \emph{Interval predikcije} najdemo s pomočjo R funkcije \emph{predict()} in sicer z ukazoma
-\verb|xteza = data.frame(telteza = c(100, 500, 2500))| in \verb|predict(model, xteza, interval = "predict")|,
-ki nam vrne rezultate:
+\verb|xlgteza = data.frame(lgtteza = log(c(100, 500, 2000)))| in \verb|exp(predict(model, xlgteza, interval = "predict"))|,
+kar nam vrne rezultat:
 
 \begin{table}[h]
     \centering
     \begin{tabular}{cccc}
-               & \textbf{fit} & \textbf{lwr} & \textbf{upr} \\
-    \textbf{1} & 5.617202     & 4.277393     & 6.957011     \\
-    \textbf{2} & 6.819109     & 5.464795     & 8.173424     \\
-    \textbf{3} & 8.021017     & 6.646528     & 9.395506    
+    \textbf{}  & \textbf{fir} & \textbf{lwr} & \textbf{upr} \\
+    \textbf{1} & 275.1184     & 72.05234     & 1050.489     \\
+    \textbf{2} & 915.1696     & 236.22735    & 3545.463     \\
+    \textbf{3} & 2576.9873    & 653.93940    & 10155.167   
     \end{tabular}
     \caption{Interval predikcije}
-    \label{tab:prediction}
-\end{table}
+    \label{tab:interval-predikcije}
+    \end{table}
+
+\noindent
+Pri tem prvi ukaz spremenljivki \emph{lgtteza} dodeli prosto izbrane parametre 100, 500 in 2000, ki predstavljajo
+telesne teže sesalcev v kilogramih, za katere želimo izračunati predvidevano težo možganov, drugi ukaz pa
+izračuna pričakovane vrednosti velikosti možganov, pri čimer uporablja že večkrat omenjeni linearni regresijski model,
+imenovan \emph{model}, polje vrednosti \emph{xlgteza} iz prejšnjega ukaza in možnost \emph{interval = "predict"}.
+Predikcijo vrednosti slučajne spremenljivke Y je smiselno narediti v okviru razpona \emph{x} vrednosti v vzorcu.
+
+Iz tabele \ref{tab:interval-predikcije} razberemo, da so predvidene vrednosti teže možganov sesalcev s telesnimi masami
+naslednje:
+
+\begin{itemize}
+    \item 100 kg je 275.12 g, s 95\% intervalom predikcije teže možganov [72.05, 1050.49],
+    \item 500 kg je 915.17 g, s 95\% intervalom predikcije teže možganov [236.23, 3545.46],
+    \item 2000 kg je 2576.99 g, s 95\% intervalom predikcije teže možganov [653.94, 10155.17].
+\end{itemize}

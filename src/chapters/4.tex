@@ -1,12 +1,52 @@
 \section{Formiranje linearnega regresijskega modela}
 
-Linearni regresijski model lahko formiramo s pomočjo funkcije \verb|lm()| in sicer z ukazom
+Linearni regresijski model lahko formiramo s pomočjo funkcije \verb|lm()|.
+Ker moramo podatke prvo transformirati lahko vmesne rezultate shranimo v spremenljivke:
+
+\begin{itemize}
+    \item \verb|lgmteza <- log(mozgani$mozteza)| in
+    \item \verb|lgtteza <- log(mozgani$telteza)|.
+\end{itemize}
 
 \noindent
-\verb|(model <- lm(mozteza~telteza, data = mozgani))|, ki nam vrne regresijsko premico
-$\widehat{y} = 95.8111 + 0.9653$, oz. oceni odseka ($\widehat{a} = 95.8111$) in naklona ($\widehat{b} = 0.9653$).\\
+Nato uporabimo ukaz \verb|(model <- lm(lgmteza~lgtteza, data = mozgani))|, ki nam vrne regresijsko premico
+$\widehat{y} = 2.1781 + 0.7468$, oz. oceni odseka ($\widehat{a} = 2.1781$) in naklona ($\widehat{b} = 0.7468$).\\
 
 \noindent
-Oceni odseka in naklona sta izračunani s formulama \verb|a <- my - b * mx|, ki nam vrne rezultat \verb|[1] 95.8111|,
-in \verb|b <- r * sy / sx|, ki nam vrne rezultat \verb|[1] 0.9653|, pri čemer smo \emph{r}, \emph{mx}, \emph{my},
+Oceni odseka in naklona sta izračunani s formulama \verb|a <- my - b * mx|, ki nam vrne rezultat \verb|[1] 2.1781|,
+in \verb|b <- r * sy / sx|, ki nam vrne rezultat \verb|[1] 0.7468|, pri čemer smo \emph{r}, \emph{mx}, \emph{my},
 \emph{sx} in \emph{sy} izračunali že prej.
+
+\subsection{Točke visokega vzvoda in osamelci}
+
+Identificirajmo točke visokega vzvoda in osamelce.
+Vrednost \emph{x} je točka visokega vzvoda, če je njen vzvod večji od $\frac{4}{n}$.
+Točke visokega vzvoda lahko izračunamo z ukazom
+
+\verb|mozgani[hatvalues(model) > 4/57,]|, ki nam vrne naslednji rezultat
+
+\begin{verbatim}
+        vrsta               slovime                telteza   mozteza
+    3   Blarina brevicauda  Rovka                  0.005     0.14
+    16  Elephas maximus     Azijski slon           2547.070  4603.17
+    30  Loxodonta africana  Afriski slon           6654.180  5711.86
+    36  Myotis lucifugus    Majhni rjavi netopir   0.010     0.25
+\end{verbatim}
+
+Vrnjen rezultat nam pove, da imamo štiri točke visokega vzvoda, dve vrsti sesalcev imata zelo nizko telesno težo,
+dve pa zelo visoko telesno težo.\\
+
+Za podatke majhne in srednje velikosti vzorca je osamelec podatkovna točka, kateri ustreza standardizirani ostanek
+izven intervala $[-2, 2]$.
+Ostanke standardiziramo, ko jih delimo z njihovim standardnim odklonom, kar storimo z ukazom
+
+\verb|mozgani[abs(rstandard(model)) > 2,]|, ki nam vrne naslednji rezultat
+
+\begin{verbatim}
+        vrsta                 slovime        telteza  mozteza
+    29  Homo sapiens sapiens  Clovek         61.998   1320.020
+    31  Macaca mulatta        Rezus makaki   6.800    179.003
+\end{verbatim}
+
+Dve podatkovni točki sta osamelca, oz. imata nenavadno nizko ali visoko težo možganov glede na telesno težo v
+primerjavi z ostalimi podatki.

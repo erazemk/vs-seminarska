@@ -1,10 +1,10 @@
-\section{Razsevni diagram in vzorčni koeficient korelacije}
+\section{Razsevni diagram in vzorčni koeficient korelacije}\label{sec3}
 
 Prikažimo dobljene podatke na razsevnem diagramu:
 
 \begin{figure}[h]
     \centering
-    \includegraphics[scale=0.7]{res/razsevni-diagram.png}
+    \includegraphics[scale=0.5]{res/razsevni-diagram.png}
     \caption{Razsevni diagram telesne in možganske teže sesalcev}
     \label{img:razs-diag}
 \end{figure}
@@ -12,8 +12,20 @@ Prikažimo dobljene podatke na razsevnem diagramu:
 \noindent
 Za izris grafa smo uporabili naslednjo R kodo:
 
-\lstinputlisting[firstline=5,lastline=16,title=Generiranje razsevnega diagrama
-(glej kodo \ref{code:mozgani})]{res/razsevni-diagram.r}
+\begin{verbatim}
+    plot(
+        x = log(mozgani$telteza),
+        y = log(mozgani$mozteza),
+        xlab = "Telesna teža sesalcev",
+        ylab = "Možganska teža sesalcev",
+        xlim = c(-7, 10),
+        ylim = c(-3, 10),
+        axes = FALSE
+    )
+
+    axis(1, pos = -3, at = seq(-8, 10, by = 2))
+    axis(2, pos = -7, at = seq(-4, 10, by = 2))
+\end{verbatim}
 
 \newpage
 Funkcija \verb|plot()| nam izriše razsevni diagram s podanimi parametri, v našem primeru z naslednjimi parametri:

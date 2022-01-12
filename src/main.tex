@@ -2,17 +2,22 @@
 \usepackage[utf8]{inputenc}
 \usepackage[margin=2.5cm]{geometry}
 \usepackage[slovene,english]{babel}
-\usepackage[unicode]{hyperref}
+\usepackage[unicode,
+    pdftex,
+    pdfauthor={Erazem Kokot},
+    pdftitle={Statisticna obdelava podatkov},
+    pdfkeywords={verjetnost, statistika, obdelava podatkov},
+    pdfsubject={Verjetnost in Statistika}]{hyperref}
+\usepackage[justification=centering]{caption}
 \usepackage{
     lipsum,
     graphicx,
     amsmath,
     amssymb,
-    caption,
-    listings,
     color,
     subcaption,
-    fancyhdr
+    fancyhdr,
+    multicol
 }
 
 \captionsetup[figure]{name=Graf}
@@ -51,11 +56,11 @@
 
     \newpage
 
-    \input{chapters/listingdefs.tex}
-
     \input{chapters/1.tex}
     \newpage
     \input{chapters/2.tex}
+    \newpage
+    \input{chapters/bonus.tex}
     \newpage
     \input{chapters/3.tex}
     \newpage
@@ -68,7 +73,5 @@
     \input{chapters/7.tex}
     \newpage
     \input{chapters/8.tex}
-    \newpage
-    \input{chapters/99.tex}
 
 \end{document}

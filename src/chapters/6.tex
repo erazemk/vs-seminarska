@@ -1,1 +1,21 @@
-\section{Testiranje linearnosti regresijskega modela in koeficient determinacije}
+\section{Testiranje linearnosti modela in koeficient determinacije}
+
+Poročilo o modelu lahko dobimo z ukazom \verb|summary(model)|, ki nam vrne spodnji (skrajšan) rezultat:
+
+\begin{verbatim}
+    Coefficients:
+                Estimate Std. Error t value Pr(>|t|)    
+    (Intercept)  2.17812    0.09487   22.96   <2e-16 ***
+    lgtteza      0.74679    0.02773   26.93   <2e-16 ***
+    ---
+    Residual standard error: 0.6579 on 57 degrees of freedom
+    Multiple R-squared:  0.9271,    Adjusted R-squared:  0.9259
+    F-statistic: 725.4 on 1 and 57 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+Zanima nas samo testna statistika za testiranje linearnosti modela $T = 26.93$, z $df = 57$ prostorskimi
+stopnjami, in p-vrednostjo $p = 2.2 \cdot 10^{16}$, ki je manjša od dane stopnje značilnosti 0.05.
+S formalnim statističnim testiranjem smo potrdili, da linearni model ustreza podatkom.
+Standardni odklon napak ocenjen s $S = 0.6579$, koeficient determinacije pa je enak $R^{2} = 0.9271$, kar je kvadrat
+vzorčnega koeficienta korelacije. To pomeni, da 93\% variabilnosti telesne teže sesalcev pojasnjuje linearni regresijski
+model.

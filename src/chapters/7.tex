@@ -1,1 +1,13 @@
 \section{Intervala zaupanja za naklon in odsek regresijske premice}
+
+95\% interval zaupanja za neznani naklon in odsek regresijske premice lahko
+izračunamo z ukazom \verb|round(confint(model), 3)|, ki nam vrne rezultat:
+
+\begin{verbatim}
+                2.5 % 97.5 %
+    (Intercept) 1.988  2.368
+    lgtteza     0.691  0.802
+\end{verbatim}
+
+Le-ta nam pove, da je interval zaupanja za odsek enak $I_{a} = [1.988, 2.368]$
+in interval zaupanja za naklon enak $I_{b} = [0.691, 0.802]$.
